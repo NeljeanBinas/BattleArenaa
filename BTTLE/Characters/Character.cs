@@ -10,7 +10,7 @@ namespace BTTLE.Characters
     internal class Character
     {
         //Set Holomem ID 
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
 
         //Set Holomem HPmx
         public int MaxHealth { get; set; }
@@ -33,5 +33,45 @@ namespace BTTLE.Characters
         //Set Holomem SPmx (Probably Optiona;l When I Do the CHAR LAter )
         public int Speed { get; set; }
 
+        //Set Holomem Current Health and Mana BAsed on defaault Stats 
+        public Character(
+            string name,
+            int maxHealth,
+            int attackPower,
+            int defense,
+            int maxMana,
+            int speed)
+        {
+            Name = name;
+
+            MaxHealth = maxHealth;
+            Health = maxHealth;
+
+            AttackPower = attackPower;
+            Defense = defense;
+
+            MaxMana = maxMana;
+            Mana = maxMana;
+
+            Speed = speed;
+        }
+
+        // HP Damage and Update Scale Indicating SUpressed/Taken DMG
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+
+            if (Health < 0)
+            {
+                Health = 0;
+            }
+        }
+
+        //Dmage 
+        public void Attack(Character target)
+        {
+            target.TakeDamage(AttackPower);
+        }
     }
 }
+
