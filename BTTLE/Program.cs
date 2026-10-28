@@ -19,7 +19,6 @@ Character gura = new Character(
 );
 
 
-// Test Marine attacking Gura
 marine.Attack(gura);
 
 Console.WriteLine($"{gura.Name}'s HP: {gura.Health}/{gura.MaxHealth}");

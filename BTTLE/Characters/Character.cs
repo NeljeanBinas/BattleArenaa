@@ -67,11 +67,20 @@ namespace BTTLE.Characters
             }
         }
 
-        //Dmage 
+
+        // Attacks another Holomem But TEnds to the Def Pts
         public void Attack(Character target)
         {
-            target.TakeDamage(AttackPower);
+            int damage = AttackPower - target.Defense;
+
+            if (damage < 1)
+            {
+                damage = 1;
+            }
+
+            target.TakeDamage(damage);
         }
+
     }
 }
 
