@@ -1,5 +1,10 @@
-﻿using BTTLE.Characters;
+﻿
+using BTTLE;
+using BTTLE.Characters;
 
+//baTTLE IS AT LIGHT SPEED FIX LATER 
+
+// Create the fighters
 Character marine = new Character(
     name: "Houshou Marine",
     maxHealth: 120,
@@ -18,7 +23,6 @@ Character gura = new Character(
     speed: 20
 );
 
-
-marine.Attack(gura);
-
-Console.WriteLine($"{gura.Name}'s HP: {gura.Health}/{gura.MaxHealth}");
+// Create the arena and start the battle
+BattleArena arena = new BattleArena();
+arena.StartBattle(marine, gura);

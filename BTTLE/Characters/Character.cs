@@ -69,7 +69,7 @@ namespace BTTLE.Characters
 
 
         // Attacks another Holomem But TEnds to the Def Pts
-        public void Attack(Character target)
+        public int Attack(Character target)
         {
             int damage = AttackPower - target.Defense;
 
@@ -79,8 +79,13 @@ namespace BTTLE.Characters
             }
 
             target.TakeDamage(damage);
+
+            return damage;
+            //Added new Line and Changed the Void this will Return the DMG vakue for th eholomem
         }
 
+        // Checks if the Holomem is Dead and/or Breathing Lol
+        public bool IsDead => Health <= 0;
     }
 }
 
